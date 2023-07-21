@@ -1,0 +1,943 @@
+{
+	"info": {
+		"_postman_id": "92d0a5f1-a73b-4d28-9c64-15e2b6085283",
+		"name": "Stroeva_myretro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27137159"
+	},
+	"item": [
+		{
+			"name": "Boards",
+			"item": [
+				{
+					"name": "Add new board",
+					"item": [
+						{
+							"name": "Add new board (valid data)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"string №123 проект\",\r\n  \"templateId\": 7,\r\n  \"description\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/boards",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"boards"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add new board (minimum number of characters)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"1\",\r\n  \"templateId\": 7,\r\n  \"description\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/boards",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"boards"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add new board (maximum number of characters)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Имя проекта Ретроспективная сессия №1 от 5.10.2022\",\r\n  \"templateId\": 7,\r\n  \"description\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/boards",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"boards"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add new board (text is larger than allowed)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Проект с таким-то названием Ретроспективная сессия №1 от 15.10.2022\",\r\n  \"templateId\": 7,\r\n  \"description\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/boards",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"boards"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add new board (text with spaces at the end)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Проект                  \",\r\n  \"templateId\": 7,\r\n  \"description\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/boards",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"boards"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add new board (text with spaces at the beginning)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"                  Проект\",\r\n  \"templateId\": 7,\r\n  \"description\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/boards",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"boards"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add new board (only spaces)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"                                  \",\r\n  \"templateId\": 7,\r\n  \"description\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/boards",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"boards"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add new board (Unacceptable symbols)",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"▲♦♥◙♀☺☻♥♦♣♠•◘○♂♀♪♫☼►◄↕‼¶§▬↨↑↓→←∟↔▼■\",\r\n  \"templateId\": 7,\r\n  \"description\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/boards/1022/spy",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"boards",
+										"1022",
+										"spy"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Return list of boards",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/boards",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"boards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit someone else's boards name/description",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"string\",\r\n  \"description\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/boards/1022",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"boards",
+								"1022"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete board by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/boards/1468",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"boards",
+								"1468"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Return list of boards members",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/boards/1022/members",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"boards",
+								"1022",
+								"members"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Toggle Anonymyty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"spy\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/boards/1022/spy",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"boards",
+								"1022",
+								"spy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Copy board share link",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/boards/ca0e2f8d48fe88f2d317010b994e2557bbaed7b59371833559a228e0637d",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"boards",
+								"ca0e2f8d48fe88f2d317010b994e2557bbaed7b59371833559a228e0637d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change column color with valid color",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"color\": \"#48B0ED\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/columns/5607",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"columns",
+								"5607"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change column color with invalid color",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"color\": \"#49B0ED\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/columns/5607",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"columns",
+								"5607"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit boards name/description",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"string\",\r\n  \"description\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/boards/1468",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"boards",
+								"1468"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cards",
+			"item": [
+				{
+					"name": "Add new card",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"columnId\": 5222,\r\n  \"content\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cards",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit someone else's card content",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"content\": \"string20\",\r\n  \"hide\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cards/8901",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cards",
+								"8901"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit my card content",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"content\": \"string20\",\r\n  \"hide\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cards/9416",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cards",
+								"9416"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete card by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cards/9383",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cards",
+								"9383"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete someone else's card by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cards/8903",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cards",
+								"8903"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hide an author true",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"hide\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cards/9716/hide",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cards",
+								"9716",
+								"hide"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hide an author true someone else's card",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"hide\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cards/8900/hide",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cards",
+								"8900",
+								"hide"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hide an author false",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"hide\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cards/9716/hide",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cards",
+								"9716",
+								"hide"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Move card to another column",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"columnId\": 5596\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cards/9729/position",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cards",
+								"9729",
+								"position"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add rating (like)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cards/9382/rating",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cards",
+								"9382",
+								"rating"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete someone else's rating by card id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cards/8902/rating",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cards",
+								"8902",
+								"rating"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete my rating by card id Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cards/9382/rating",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cards",
+								"9382",
+								"rating"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "Get comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/comments?cardId=9716",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"comments"
+							],
+							"query": [
+								{
+									"key": "cardId",
+									"value": "9716"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cardId\": 9716,\r\n  \"content\": \"string2551516\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/comments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"comments"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit the comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"content\": \"string414141141414\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/comments/2272",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"comments",
+								"2272"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete my comment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/comments/1885",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"comments",
+								"1885"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete someone else's comment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/comments/1887",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"comments",
+								"1887"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Other",
+			"item": [
+				{
+					"name": "Get info about user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/me",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit board theme false",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"isDarkMode\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/switch_theme",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"switch_theme"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit board theme  true",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"isDarkMode\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/switch_theme",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"switch_theme"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Return template of board parameters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/templates",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"templates"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
